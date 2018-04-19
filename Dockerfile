@@ -11,18 +11,14 @@ ONBUILD ARG SWAGGER_PATH=/swagger
 ONBUILD RUN sed -i "s|http://petstore.swagger.io/v2/swagger.json|$SWAGGER_PATH|g" /swagger-ui/index.html && \
     sed -i "s|http://example.com/api|$SWAGGER_PATH|g" /swagger-ui/index.html
 
-# go get -u golang.org/x/net/...
-RUN git clone https://github.com/golang/net.git $GOPATH/src/golang.org/x/net
+# install x packages
+RUN go get -u golang.org/x/crypto/... \
+    && go get -u golang.org/x/crypto/... \
+    && go get -u golang.org/x/sys/... \
+    && go get -u golang.org/x/oauth2
 
-# go get -u golang.org/x/crypto/...
-RUN git clone https://github.com/golang/crypto.git $GOPATH/src/golang.org/x/crypto
-
-# go get -u golang.org/x/sys/...
-RUN git clone https://github.com/golang/sys.git $GOPATH/src/golang.org/x/sys
-
-# install packages
+# install go packages
 RUN go get go.uber.org/zap \
-    && go get golang.org/x/oauth2 \
     && go get gopkg.in/mgo.v2 \
     && go get gopkg.in/yaml.v2 \
     && go get google.golang.org/grpc
