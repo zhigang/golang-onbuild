@@ -14,8 +14,8 @@ ONBUILD RUN sed -i "s|http://petstore.swagger.io/v2/swagger.json|$SWAGGER_PATH|g
 # install x packages
 RUN go get golang.org/x/crypto/... \
     && go get golang.org/x/sys/... \
-    && go get golang.org/x/net \
-    && go get golang.org/x/oauth2
+    && go get golang.org/x/net/... \
+    && go get golang.org/x/oauth2/...
 
 # install go packages
 RUN go get go.uber.org/zap \
@@ -48,4 +48,3 @@ RUN go get go.uber.org/zap \
     && go get github.com/gorilla/mux \
     && go get github.com/gorilla/context \
     && go get github.com/pangpanglabs/goutils/...
-    
