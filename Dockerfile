@@ -17,9 +17,12 @@ RUN git clone https://github.com/golang/net.git $GOPATH/src/golang.org/x/net
 # go get -u golang.org/x/crypto/...
 RUN git clone https://github.com/golang/crypto.git $GOPATH/src/golang.org/x/crypto
 
+# go get -u golang.org/x/sys/...
+RUN git clone https://github.com/golang/sys.git $GOPATH/src/golang.org/x/sys
+
 # install packages
-RUN go get -v go.uber.org/zap \
-    && go get -v golang.org/x/oauth2 \
-    && go get -v gopkg.in/mgo.v2 \
-    && go get -v gopkg.in/yaml.v2 \
-    && go get -v google.golang.org/grpc
+RUN go get go.uber.org/zap \
+    && go get golang.org/x/oauth2 \
+    && go get gopkg.in/mgo.v2 \
+    && go get gopkg.in/yaml.v2 \
+    && go get google.golang.org/grpc
