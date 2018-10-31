@@ -9,6 +9,7 @@ Golang onbuild with x package.
 ## Docker Tag
 
 * 1.9
+* 1.11
 
 ## Build docker image
 

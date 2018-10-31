@@ -1,4 +1,4 @@
-FROM golang:1.9
+FROM golang:1.11
 
 LABEL maintainer="siriuszg <zhigang52110@sina.com>"
 
